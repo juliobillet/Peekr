@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Peekr",
-  description: "Sessões privadas ao vivo para aulas, mentorias, revisões e consultorias.",
+  description: "Venda sua presença. Não um curso.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
