@@ -1,0 +1,2 @@
+-- Placeholder do seed SQL do Supabase.
+-- O conteúdo inicial será adicionado em commits futuros.
