@@ -7,9 +7,9 @@ export function Footer() {
           <p>Sessões privadas ao vivo para aprender, orientar e resolver.</p>
         </div>
         <div className="flex gap-4">
-          <a href="#" className="hover:text-zinc-900 dark:hover:text-zinc-200">Termos</a>
-          <a href="#" className="hover:text-zinc-900 dark:hover:text-zinc-200">Privacidade</a>
-          <a href="#" className="hover:text-zinc-900 dark:hover:text-zinc-200">Suporte</a>
+          <a href="#" className="text-brand-blue transition hover:text-brand-orange">Termos</a>
+          <a href="#" className="text-brand-blue transition hover:text-brand-orange">Privacidade</a>
+          <a href="#" className="text-brand-blue transition hover:text-brand-orange">Suporte</a>
         </div>
       </div>
     </footer>
