@@ -1,6 +1,5 @@
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { routes } from "@/lib/routes";
 
@@ -24,12 +23,13 @@ export default function HomePage() {
         <SectionHeading title="Como funciona" />
         <div className="grid gap-3 md:grid-cols-4">
           {steps.map((s, i) => (
-            <Card key={s} className="bg-brand-blue text-white shadow-[0_0_0_1px_rgba(246,139,10,0.22),0_0_18px_rgba(246,139,10,0.18)] dark:bg-brand-blue">
-              <CardContent>
-                <p className="text-lg font-bold text-brand-orange">0{i + 1}</p>
-                <p className="mt-2 font-semibold text-white">{s}</p>
-              </CardContent>
-            </Card>
+            <article
+              key={s}
+              className="rounded-2xl border border-brand-blue bg-brand-blue p-5 text-white shadow-[0_0_0_1px_rgba(246,139,10,0.22),0_0_18px_rgba(246,139,10,0.18)]"
+            >
+              <p className="text-xl font-bold text-brand-orange">0{i + 1}</p>
+              <p className="mt-2 font-semibold text-white">{s}</p>
+            </article>
           ))}
         </div>
       </section>
@@ -38,11 +38,12 @@ export default function HomePage() {
         <SectionHeading title="Para que serve" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {useCases.map((item) => (
-            <Card key={item} className="bg-brand-blue text-white shadow-[0_0_0_1px_rgba(246,139,10,0.22),0_0_18px_rgba(246,139,10,0.18)] dark:bg-brand-blue">
-              <CardHeader className="text-center">
-                <CardTitle className="text-white">{item}</CardTitle>
-              </CardHeader>
-            </Card>
+            <article
+              key={item}
+              className="rounded-2xl border border-brand-blue bg-brand-blue p-5 text-center text-lg font-semibold text-white shadow-[0_0_0_1px_rgba(246,139,10,0.22),0_0_18px_rgba(246,139,10,0.18)]"
+            >
+              {item}
+            </article>
           ))}
         </div>
       </section>
