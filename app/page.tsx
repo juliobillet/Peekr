@@ -1,107 +1,157 @@
-import Image from "next/image";
 import Link from "next/link";
 
-const featureCards = [
+const howItWorks = [
   {
-    src: "/mockups/profile-schedule.png",
-    alt: "Interface de perfil com agenda",
+    step: "1",
+    title: "Crie seu perfil",
+    description: "Mostre quem você é, suas especialidades e como pode ajudar.",
+    icon: "/icons/profile-icon.png",
   },
   {
-    src: "/mockups/overview-card.png",
-    alt: "Resumo de sessões e próxima sessão",
+    step: "2",
+    title: "Abra horários na agenda",
+    description: "Defina sua disponibilidade e personalize a duração e o valor das sessões.",
+    icon: "/icons/calendar-icon.png",
   },
   {
-    src: "/mockups/payment-card.png",
-    alt: "Fluxo de reserva e pagamento",
+    step: "3",
+    title: "Receba reservas e pagas",
+    description: "Suas clientes selecionam o horário e pagam com segurança na plataforma.",
+    icon: "/icons/credit-card-icon.png",
   },
   {
-    src: "/mockups/room-card.png",
-    alt: "Experiência da sala efêmera ao vivo",
+    step: "4",
+    title: "Encontre sua cliente em uma sala efêmera",
+    description: "A sala abre antes do horário, acontece ao vivo e encerra ao final da sessão.",
+    icon: "/icons/camera-icon.png",
   },
 ];
 
+const audienceCards = [
+  { title: "Aulas particulares", icon: "/icons/presentation-icon.png" },
+  { title: "Mentorias", icon: "/icons/profile-arrow-icon.png" },
+  { title: "Revisões", icon: "/icons/note-icon.png" },
+  { title: "Consultorias", icon: "/icons/message-icon.png" },
+  { title: "Prática guiada", icon: "/icons/pin-icon.png" },
+  { title: "Orientação profissional", icon: "/icons/profile-big-arrow-icon.png" },
+];
+
+const footerLinks = ["Privacidade", "Termos", "Segurança", "Contato"];
+
 export default function HomePage() {
   return (
-    <div className="space-y-16 pb-12">
-      <section className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="space-y-6">
-          <p className="inline-flex rounded-full border border-brand-orange/40 bg-brand-orange/10 px-4 py-1 text-sm font-semibold text-brand-orange">
-            Sessões privadas ao vivo
-          </p>
-          <h1 className="text-4xl font-extrabold tracking-tight text-brand-blue sm:text-5xl">
-            Venda sua presença. Não um curso.
+    <div className="mx-auto max-w-[1320px] space-y-12 px-4 pb-8 pt-6 md:px-8">
+      <section className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+        <div className="space-y-6 pt-6">
+          <span className="inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-brand-orange">
+            ⭐ A plataforma de sessões privadas ao vivo
+          </span>
+          <h1 className="text-5xl font-extrabold leading-[0.95] tracking-tight text-[#0c1b58] sm:text-7xl dark:text-white">
+            Venda sua presença.
+            <br />
+            <span className="text-brand-orange">Não um curso.</span>
           </h1>
-          <p className="max-w-xl text-lg text-zinc-700 dark:text-zinc-300">
-            Perfil, agenda, pagamento e sala efêmera para aulas, mentorias, revisões e consultorias privadas ao vivo.
+          <p className="max-w-xl text-3xl/relaxed text-[#5c6d94] dark:text-zinc-300">
+            Peekr reúne perfil, agenda, pagamento e sala efêmera para aulas, mentorias, revisões e consultorias privadas ao vivo.
+            Você ensina, orienta e transforma — nós cuidamos do resto.
           </p>
-
           <div className="flex flex-wrap gap-3">
-            <Link
-              href="/register"
-              className="rounded-xl bg-brand-orange px-6 py-3 font-semibold text-white transition hover:shadow-[0_0_0_3px_rgba(29,78,216,0.25)]"
-            >
+            <Link href="/register" className="rounded-xl bg-[#0b4bff] px-8 py-4 text-lg font-semibold text-white">
               Criar meu perfil
             </Link>
             <Link
               href="/oathlon"
-              className="rounded-xl border border-brand-blue/30 px-6 py-3 font-semibold text-brand-blue transition hover:border-brand-orange hover:text-brand-orange"
+              className="rounded-xl border border-[#d4ddf8] bg-white px-8 py-4 text-lg font-semibold text-[#0d1b57] transition hover:text-brand-orange dark:bg-zinc-900"
             >
               Ver exemplo de perfil
             </Link>
           </div>
-        </div>
-
-        <div className="relative">
-          <Image
-            src="/mockups/profile-schedule.png"
-            alt="Mockup principal do perfil com agenda"
-            width={1335}
-            height={968}
-            priority
-            className="h-auto w-full"
-          />
-        </div>
-      </section>
-
-      <section className="grid gap-6 md:grid-cols-2">
-        {featureCards.map((item) => (
-          <article key={item.src} className="rounded-3xl border border-zinc-200/70 bg-transparent p-2 dark:border-zinc-800/80">
-            <Image src={item.src} alt={item.alt} width={1335} height={968} className="h-auto w-full" />
-          </article>
-        ))}
-      </section>
-
-      <section className="grid items-center gap-8 rounded-3xl border border-zinc-200 p-6 md:grid-cols-[0.95fr_1.05fr] dark:border-zinc-800">
-        <div className="space-y-4">
-          <h2 className="text-3xl font-bold text-brand-blue">Efêmero por padrão</h2>
-          <p className="text-zinc-700 dark:text-zinc-300">
-            A sala abre antes do horário, acontece ao vivo e deixa de aceitar acessos após o encerramento.
-            A Peekr não grava sessões por padrão.
-          </p>
-          <p className="text-zinc-700 dark:text-zinc-300">
-            Gravações externas por softwares ou dispositivos de terceiros não podem ser bloqueadas com garantia absoluta.
-          </p>
-          <div className="text-sm">
-            <Link href="/login" className="font-semibold text-brand-blue transition hover:text-brand-orange">
-              Entrar
-            </Link>
-            <span className="mx-2 text-zinc-400">•</span>
-            <Link href="/register" className="font-semibold text-brand-blue transition hover:text-brand-orange">
-              Criar perfil
-            </Link>
+          <div className="grid max-w-2xl grid-cols-1 gap-4 pt-2 sm:grid-cols-3 text-[#0d1b57] dark:text-zinc-200">
+            <div className="flex items-center gap-2"><span>👥</span><span><b>+10 mil</b> profissionais</span></div>
+            <div className="flex items-center gap-2"><span>📅</span><span><b>+120 mil</b> sessões realizadas</span></div>
+            <div className="flex items-center gap-2"><span>🛡️</span><span>Segurança e privacidade</span></div>
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <Image
-            src="/mockups/lock-visual.png"
-            alt="Visual de privacidade"
-            width={1462}
-            height={1072}
-            className="h-auto w-full max-w-xl"
-          />
+        <div className="relative pb-28 lg:pb-20">
+          <img src="/mockups/profile-schedule.png" alt="Perfil e agenda" className="w-full" />
+          <img src="/mockups/payment-card.png" alt="Reserva e pagamento" className="absolute -bottom-6 left-2 w-[37%]" />
+          <img src="/mockups/room-card.png" alt="Sala efêmera" className="absolute -bottom-12 right-0 w-[58%]" />
         </div>
       </section>
+
+      <p className="text-center text-lg text-[#5b6a91] dark:text-zinc-300">🛡️ Ambiente seguro, pagamentos protegidos e nenhuma gravação por padrão.</p>
+
+      <section className="space-y-10 pt-2">
+        <h2 className="text-center text-5xl font-bold text-[#0d1b57] dark:text-white">Como funciona</h2>
+        <div className="grid gap-8 md:grid-cols-4">
+          {howItWorks.map((item, index) => (
+            <article key={item.step} className="space-y-4 text-center">
+              <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-[#d9e2fa] bg-white shadow-sm dark:bg-zinc-900">
+                <img src={item.icon} alt="" className="h-7 w-7" />
+                <span className="absolute -bottom-2 -left-2 rounded bg-[#0b4bff] px-1.5 py-0.5 text-xs font-bold text-white">{index + 1}</span>
+              </div>
+              <h3 className="text-2xl font-semibold text-[#0d1b57] dark:text-white">{item.title}</h3>
+              <p className="text-lg text-[#5c6d94] dark:text-zinc-300">{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-8">
+        <h2 className="text-center text-5xl font-bold text-[#0d1b57] dark:text-white">Para quem é o Peekr</h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+          {audienceCards.map((item) => (
+            <article key={item.title} className="rounded-2xl border border-[#e3e9fb] bg-white p-6 text-center dark:bg-zinc-900">
+              <img src={item.icon} alt="" className="mx-auto mb-4 h-8 w-8" />
+              <h3 className="text-2xl font-semibold text-[#0d1b57] dark:text-white">{item.title}</h3>
+            </article>
+          ))}
+        </div>
+        <p className="text-center text-2xl text-[#5c6d94] dark:text-zinc-300">Educação, carreira, idiomas, negócios, tecnologia e muito mais.</p>
+      </section>
+
+      <section className="rounded-3xl border border-[#15378f] bg-[#031952] p-8 text-white">
+        <div className="grid items-center gap-8 md:grid-cols-[1.1fr_1fr_0.8fr]">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-blue-300">Privacidade que gera confiança</p>
+            <h2 className="mt-2 text-5xl font-bold">Efêmero por padrão</h2>
+            <p className="mt-4 text-2xl text-blue-100">A sala abre antes do horário, acontece ao vivo e para de aceitar acessos quando a sessão termina. Suas sessões não são gravadas por padrão.</p>
+          </div>
+          <ul className="space-y-4 text-xl text-blue-100">
+            <li>✅ Sala privada e criptografada</li>
+            <li>✅ Acesso restrito ao horário da sessão</li>
+            <li>✅ Sem gravações por padrão</li>
+          </ul>
+          <img src="/mockups/lock-visual.png" alt="Privacidade" className="w-full" />
+        </div>
+      </section>
+
+      <section className="rounded-3xl bg-[#f3f6ff] p-8 dark:bg-zinc-900">
+        <div className="grid items-center gap-6 lg:grid-cols-[1fr_1.2fr]">
+          <div className="space-y-4">
+            <h2 className="text-5xl font-bold text-[#0d1b57] dark:text-white">Pronto para transformar sua presença em impacto?</h2>
+            <p className="text-2xl text-[#5c6d94] dark:text-zinc-300">Crie seu perfil gratuitamente e comece a receber seus primeiros agendamentos.</p>
+            <div className="flex gap-3">
+              <Link href="/register" className="rounded-xl bg-[#0b4bff] px-6 py-3 text-lg font-semibold text-white">Criar meu perfil</Link>
+              <Link href="/oathlon" className="rounded-xl border border-[#d4ddf8] bg-white px-6 py-3 text-lg font-semibold text-[#0d1b57] transition hover:text-brand-orange">Ver exemplo de perfil</Link>
+            </div>
+          </div>
+          <img src="/mockups/overview-card.png" alt="Visão geral e próxima sessão" className="w-full" />
+        </div>
+      </section>
+
+      <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-zinc-200 py-6 text-sm dark:border-zinc-800">
+        <div className="font-bold text-brand-blue">Peekr</div>
+        <p className="text-zinc-500">© 2024 Peekr. Todos os direitos reservados.</p>
+        <div className="flex gap-5">
+          {footerLinks.map((link) => (
+            <a key={link} href="#" className="text-brand-blue transition hover:text-brand-orange">
+              {link}
+            </a>
+          ))}
+        </div>
+      </footer>
     </div>
   );
 }
