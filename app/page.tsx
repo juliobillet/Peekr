@@ -1,61 +1,106 @@
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { routes } from "@/lib/routes";
+import Image from "next/image";
+import Link from "next/link";
 
-const useCases = ["Aulas particulares", "Mentorias", "Revisões", "Consultorias", "Prática guiada", "Orientação profissional"];
-const steps = ["Crie seu perfil", "Abra horários na agenda", "Receba reservas pagas", "Encontre seu cliente em uma sala efêmera"];
+const featureCards = [
+  {
+    src: "/mockups/profile-schedule.png",
+    alt: "Interface de perfil com agenda",
+  },
+  {
+    src: "/mockups/overview-card.png",
+    alt: "Resumo de sessões e próxima sessão",
+  },
+  {
+    src: "/mockups/payment-card.png",
+    alt: "Fluxo de reserva e pagamento",
+  },
+  {
+    src: "/mockups/room-card.png",
+    alt: "Experiência da sala efêmera ao vivo",
+  },
+];
 
 export default function HomePage() {
   return (
-    <div className="space-y-16">
-      <section className="space-y-6 py-10">
-        <Badge variant="violet">Sessões privadas ao vivo</Badge>
-        <h1 className="max-w-3xl text-4xl font-bold text-brand-blue md:text-6xl">Venda sua presença. Não um curso.</h1>
-        <p className="max-w-3xl text-brand-blue/90 dark:text-zinc-300">A Peekr reúne perfil, agenda, pagamento e sala efêmera para aulas, mentorias, revisões e consultorias privadas ao vivo.</p>
-        <div className="flex flex-wrap gap-3">
-          <Button href={routes.register}>Criar meu perfil</Button>
-          <Button href={routes.profile("oathlon")} variant="secondary">Ver exemplo de perfil</Button>
-        </div>
-      </section>
+    <div className="space-y-16 pb-12">
+      <section className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="space-y-6">
+          <p className="inline-flex rounded-full border border-brand-orange/40 bg-brand-orange/10 px-4 py-1 text-sm font-semibold text-brand-orange">
+            Sessões privadas ao vivo
+          </p>
+          <h1 className="text-4xl font-extrabold tracking-tight text-brand-blue sm:text-5xl">
+            Venda sua presença. Não um curso.
+          </h1>
+          <p className="max-w-xl text-lg text-zinc-700 dark:text-zinc-300">
+            Perfil, agenda, pagamento e sala efêmera para aulas, mentorias, revisões e consultorias privadas ao vivo.
+          </p>
 
-      <section className="space-y-6">
-        <SectionHeading title="Como funciona" />
-        <div className="grid gap-3 md:grid-cols-4">
-          {steps.map((s, i) => (
-            <article
-              key={s}
-              className="rounded-2xl border border-brand-blue bg-brand-blue p-5 text-white shadow-[0_0_0_1px_rgba(246,139,10,0.22),0_0_18px_rgba(246,139,10,0.18)]"
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/register"
+              className="rounded-xl bg-brand-orange px-6 py-3 font-semibold text-white transition hover:shadow-[0_0_0_3px_rgba(29,78,216,0.25)]"
             >
-              <p className="text-xl font-bold text-brand-orange">0{i + 1}</p>
-              <p className="mt-2 font-semibold text-white">{s}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <SectionHeading title="Para que serve" />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {useCases.map((item) => (
-            <article
-              key={item}
-              className="rounded-2xl border border-brand-blue bg-brand-blue p-5 text-center text-lg font-semibold text-white shadow-[0_0_0_1px_rgba(246,139,10,0.22),0_0_18px_rgba(246,139,10,0.18)]"
+              Criar meu perfil
+            </Link>
+            <Link
+              href="/oathlon"
+              className="rounded-xl border border-brand-blue/30 px-6 py-3 font-semibold text-brand-blue transition hover:border-brand-orange hover:text-brand-orange"
             >
-              {item}
-            </article>
-          ))}
+              Ver exemplo de perfil
+            </Link>
+          </div>
+        </div>
+
+        <div className="relative">
+          <Image
+            src="/mockups/profile-schedule.png"
+            alt="Mockup principal do perfil com agenda"
+            width={1335}
+            height={968}
+            priority
+            className="h-auto w-full"
+          />
         </div>
       </section>
 
-      <section className="space-y-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900/50">
-        <SectionHeading title="Efêmero por padrão" description="A sala abre antes do horário, acontece ao vivo e deixa de aceitar acessos após o encerramento. A Peekr não grava sessões por padrão." />
-        <p className="text-sm text-brand-blue/90 dark:text-zinc-400">A Peekr também não promete bloqueio absoluto contra gravações externas feitas por softwares ou dispositivos de terceiros.</p>
+      <section className="grid gap-6 md:grid-cols-2">
+        {featureCards.map((item) => (
+          <article key={item.src} className="rounded-3xl border border-zinc-200/70 bg-transparent p-2 dark:border-zinc-800/80">
+            <Image src={item.src} alt={item.alt} width={1335} height={968} className="h-auto w-full" />
+          </article>
+        ))}
       </section>
 
-      <section className="rounded-2xl border border-zinc-200 bg-zinc-50 p-8 text-center dark:border-zinc-800 dark:bg-zinc-900/60">
-        <h2 className="text-2xl font-bold text-brand-blue">Pronto para vender seu tempo com menos atrito?</h2>
-        <div className="mt-5"><Button href={routes.register} size="lg">Criar perfil na Peekr</Button></div>
+      <section className="grid items-center gap-8 rounded-3xl border border-zinc-200 p-6 md:grid-cols-[0.95fr_1.05fr] dark:border-zinc-800">
+        <div className="space-y-4">
+          <h2 className="text-3xl font-bold text-brand-blue">Efêmero por padrão</h2>
+          <p className="text-zinc-700 dark:text-zinc-300">
+            A sala abre antes do horário, acontece ao vivo e deixa de aceitar acessos após o encerramento.
+            A Peekr não grava sessões por padrão.
+          </p>
+          <p className="text-zinc-700 dark:text-zinc-300">
+            Gravações externas por softwares ou dispositivos de terceiros não podem ser bloqueadas com garantia absoluta.
+          </p>
+          <div className="text-sm">
+            <Link href="/login" className="font-semibold text-brand-blue transition hover:text-brand-orange">
+              Entrar
+            </Link>
+            <span className="mx-2 text-zinc-400">•</span>
+            <Link href="/register" className="font-semibold text-brand-blue transition hover:text-brand-orange">
+              Criar perfil
+            </Link>
+          </div>
+        </div>
+
+        <div className="flex justify-center">
+          <Image
+            src="/mockups/lock-visual.png"
+            alt="Visual de privacidade"
+            width={1462}
+            height={1072}
+            className="h-auto w-full max-w-xl"
+          />
+        </div>
       </section>
     </div>
   );
