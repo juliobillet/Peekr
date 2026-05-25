@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Peekr",
   description: "Sessões privadas ao vivo para aulas, mentorias, revisões e consultorias.",
   icons: {
-    icon: [{ url: "/logos/logo-peekr.png", type: "image/png" }],
+    icon: [{ url: "/logos/logo-peekr.png", type: "image/png", sizes: "any" }],
     shortcut: "/logos/logo-peekr.png",
   },
 };
