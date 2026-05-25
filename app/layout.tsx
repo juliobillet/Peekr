@@ -9,6 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Peekr",
   description: "Sessões privadas ao vivo para aulas, mentorias, revisões e consultorias.",
+  icons: {
+    icon: [{ url: "/logos/logo-peekr.png", type: "image/png" }],
+    shortcut: "/logos/logo-peekr.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
