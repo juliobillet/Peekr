@@ -36,7 +36,6 @@ const audienceCards = [
   { title: "Orientação profissional", icon: "/icons/profile-big-arrow-icon.png" },
 ];
 
-const footerLinks = ["Privacidade", "Termos", "Segurança", "Contato"];
 
 export default function HomePage() {
   return (
@@ -141,17 +140,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-zinc-200 py-6 text-sm dark:border-zinc-800">
-        <div className="font-bold text-brand-blue">Peekr</div>
-        <p className="text-zinc-500">© 2024 Peekr. Todos os direitos reservados.</p>
-        <div className="flex gap-5">
-          {footerLinks.map((link) => (
-            <a key={link} href="#" className="text-brand-blue transition hover:text-brand-orange">
-              {link}
-            </a>
-          ))}
-        </div>
-      </footer>
     </div>
   );
 }
