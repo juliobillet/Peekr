@@ -45,12 +45,12 @@ export default function HomePage() {
           <span className="inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-brand-orange">
             ⭐ A plataforma de sessões privadas ao vivo
           </span>
-          <h1 className="text-5xl font-extrabold leading-[0.95] tracking-tight text-brand-blue sm:text-7xl">
+          <h1 className="text-4xl font-extrabold leading-[1.02] tracking-tight text-brand-blue sm:text-6xl lg:text-7xl">
             Venda sua presença.
             <br />
             <span className="text-brand-orange">Não um curso.</span>
           </h1>
-          <p className="max-w-xl text-2xl/relaxed text-[#0c1b58]">
+          <p className="max-w-xl text-lg/relaxed text-[#0c1b58] sm:text-2xl/relaxed">
             Peekr reúne perfil, agenda, pagamento e sala efêmera para aulas, mentorias, revisões e consultorias privadas ao vivo.
             Você ensina, orienta e transforma — nós cuidamos do resto.
           </p>
@@ -59,7 +59,7 @@ export default function HomePage() {
               Criar meu perfil
             </Link>
             <Link
-              href="/oathlon"
+              href="/athlon"
               className="rounded-xl border border-[#d4ddf8] bg-white px-8 py-4 text-lg font-semibold text-[#0d1b57] transition hover:text-brand-orange"
             >
               Ver exemplo de perfil
@@ -82,7 +82,7 @@ export default function HomePage() {
       <p className="text-center text-lg text-[#5b6a91]">🛡️ Ambiente seguro, pagamentos protegidos e nenhuma gravação por padrão.</p>
 
       <section className="space-y-10 pt-2">
-        <h2 className="text-center text-5xl font-bold text-[#0d1b57]">Como funciona</h2>
+        <h2 className="text-center text-3xl font-bold sm:text-5xl text-[#0d1b57]">Como funciona</h2>
         <div className="grid gap-8 md:grid-cols-4">
           {howItWorks.map((item, index) => (
             <article key={item.step} className="space-y-4 text-center">
@@ -98,7 +98,7 @@ export default function HomePage() {
       </section>
 
       <section className="space-y-8">
-        <h2 className="text-center text-5xl font-bold text-[#0d1b57]">Para quem é o Peekr</h2>
+        <h2 className="text-center text-3xl font-bold sm:text-5xl text-[#0d1b57]">Para quem é o Peekr</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {audienceCards.map((item) => (
             <article key={item.title} className="flex min-h-40 flex-col items-center justify-center gap-4 rounded-2xl border border-[#e3e9fb] bg-white p-4 text-center">
@@ -131,11 +131,11 @@ export default function HomePage() {
       <section className="rounded-3xl bg-[#f3f6ff] p-8">
         <div className="grid items-center gap-6 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-4">
-            <h2 className="text-5xl font-bold text-[#0d1b57]">Pronto para transformar sua presença em impacto?</h2>
+            <h2 className="text-3xl font-bold text-[#0d1b57] sm:text-5xl">Pronto para transformar sua presença em impacto?</h2>
             <p className="text-2xl text-[#5c6d94]">Crie seu perfil gratuitamente e comece a receber seus primeiros agendamentos.</p>
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <Link href="/register" className="rounded-xl bg-[#0b4bff] px-6 py-3 text-lg font-semibold text-white">Criar meu perfil</Link>
-              <Link href="/oathlon" className="rounded-xl border border-[#d4ddf8] bg-white px-6 py-3 text-lg font-semibold text-[#0d1b57] transition hover:text-brand-orange">Ver exemplo de perfil</Link>
+              <Link href="/athlon" className="rounded-xl border border-[#d4ddf8] bg-white px-6 py-3 text-lg font-semibold text-[#0d1b57] transition hover:text-brand-orange">Ver exemplo de perfil</Link>
             </div>
           </div>
           <img src="/mockups/overview-card.png" alt="Visão geral e próxima sessão" className="w-full" />

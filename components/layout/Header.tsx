@@ -1,22 +1,3 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { routes } from "@/lib/routes";
-
-export function Header() {
-  return (
-    <header className="border-b border-zinc-200/80 bg-white/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link href={routes.home} className="text-xl font-bold">
-          <span className="text-brand-blue">Peek</span>
-          <span className="text-brand-orange">r</span>
-        </Link>
-        <nav className="flex items-center gap-2 sm:gap-4">
-          <Link href={routes.home} className="text-sm text-zinc-700 hover:text-zinc-900">Início</Link>
-          <Link href={routes.profile("oathlon")} className="text-sm text-zinc-700 hover:text-zinc-900">Explorar</Link>
-          <Link href={routes.login} className="text-sm text-zinc-700 hover:text-zinc-900">Entrar</Link>
-          <Button href={routes.register} size="sm">Criar perfil</Button>
-        </nav>
-      </div>
-    </header>
-  );
-}
+export function Header() { return <header className="sticky top-0 z-30 border-b border-[#e1e8f8] bg-white/90 backdrop-blur"><div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3"><Link href="/" className="shrink-0 text-2xl font-extrabold tracking-tight text-[#0b4bff]">Peek<span className="text-brand-orange">r</span></Link><nav className="flex min-w-0 items-center gap-1 sm:gap-3"><Link href="/explore" className="hidden rounded-lg px-2 py-2 text-sm font-medium text-[#40547c] hover:bg-blue-50 sm:block">Explorar</Link><Link href="/login" className="rounded-lg px-2 py-2 text-sm font-medium text-[#40547c] hover:bg-blue-50">Entrar</Link><Button href="/register" size="sm" className="whitespace-nowrap">Criar perfil</Button></nav></div></header>; }
