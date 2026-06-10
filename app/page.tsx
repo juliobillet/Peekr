@@ -45,12 +45,12 @@ export default function HomePage() {
           <span className="inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-brand-orange">
             ⭐ A plataforma de sessões privadas ao vivo
           </span>
-          <h1 className="text-5xl font-extrabold leading-[0.95] tracking-tight text-[#0c1b58] sm:text-7xl dark:text-white">
+          <h1 className="text-5xl font-extrabold leading-[0.95] tracking-tight text-brand-blue sm:text-7xl">
             Venda sua presença.
             <br />
             <span className="text-brand-orange">Não um curso.</span>
           </h1>
-          <p className="max-w-xl text-3xl/relaxed text-[#5c6d94] dark:text-zinc-300">
+          <p className="max-w-xl text-2xl/relaxed text-[#0c1b58]">
             Peekr reúne perfil, agenda, pagamento e sala efêmera para aulas, mentorias, revisões e consultorias privadas ao vivo.
             Você ensina, orienta e transforma — nós cuidamos do resto.
           </p>
@@ -60,12 +60,12 @@ export default function HomePage() {
             </Link>
             <Link
               href="/oathlon"
-              className="rounded-xl border border-[#d4ddf8] bg-white px-8 py-4 text-lg font-semibold text-[#0d1b57] transition hover:text-brand-orange dark:bg-zinc-900"
+              className="rounded-xl border border-[#d4ddf8] bg-white px-8 py-4 text-lg font-semibold text-[#0d1b57] transition hover:text-brand-orange"
             >
               Ver exemplo de perfil
             </Link>
           </div>
-          <div className="grid max-w-2xl grid-cols-1 gap-4 pt-2 sm:grid-cols-3 text-[#0d1b57] dark:text-zinc-200">
+          <div className="grid max-w-2xl grid-cols-1 gap-4 pt-2 sm:grid-cols-3 text-[#0d1b57]">
             <div className="flex items-center gap-2"><span>👥</span><span><b>+10 mil</b> profissionais</span></div>
             <div className="flex items-center gap-2"><span>📅</span><span><b>+120 mil</b> sessões realizadas</span></div>
             <div className="flex items-center gap-2"><span>🛡️</span><span>Segurança e privacidade</span></div>
@@ -79,35 +79,37 @@ export default function HomePage() {
         </div>
       </section>
 
-      <p className="text-center text-lg text-[#5b6a91] dark:text-zinc-300">🛡️ Ambiente seguro, pagamentos protegidos e nenhuma gravação por padrão.</p>
+      <p className="text-center text-lg text-[#5b6a91]">🛡️ Ambiente seguro, pagamentos protegidos e nenhuma gravação por padrão.</p>
 
       <section className="space-y-10 pt-2">
-        <h2 className="text-center text-5xl font-bold text-[#0d1b57] dark:text-white">Como funciona</h2>
+        <h2 className="text-center text-5xl font-bold text-[#0d1b57]">Como funciona</h2>
         <div className="grid gap-8 md:grid-cols-4">
           {howItWorks.map((item, index) => (
             <article key={item.step} className="space-y-4 text-center">
-              <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-[#d9e2fa] bg-white shadow-sm dark:bg-zinc-900">
-                <img src={item.icon} alt="" className="h-7 w-7" />
+              <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-[#d9e2fa] bg-white shadow-sm">
+                <img src={item.icon} alt="" className="max-h-7 max-w-7 object-contain" />
                 <span className="absolute -bottom-2 -left-2 rounded bg-[#0b4bff] px-1.5 py-0.5 text-xs font-bold text-white">{index + 1}</span>
               </div>
-              <h3 className="text-2xl font-semibold text-[#0d1b57] dark:text-white">{item.title}</h3>
-              <p className="text-lg text-[#5c6d94] dark:text-zinc-300">{item.description}</p>
+              <h3 className="text-2xl font-semibold text-[#0d1b57]">{item.title}</h3>
+              <p className="text-lg text-[#5c6d94]">{item.description}</p>
             </article>
           ))}
         </div>
       </section>
 
       <section className="space-y-8">
-        <h2 className="text-center text-5xl font-bold text-[#0d1b57] dark:text-white">Para quem é o Peekr</h2>
+        <h2 className="text-center text-5xl font-bold text-[#0d1b57]">Para quem é o Peekr</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {audienceCards.map((item) => (
-            <article key={item.title} className="rounded-2xl border border-[#e3e9fb] bg-white p-6 text-center dark:bg-zinc-900">
-              <img src={item.icon} alt="" className="mx-auto mb-4 h-8 w-8" />
-              <h3 className="text-2xl font-semibold text-[#0d1b57] dark:text-white">{item.title}</h3>
+            <article key={item.title} className="flex min-h-40 flex-col items-center justify-center gap-4 rounded-2xl border border-[#e3e9fb] bg-white p-4 text-center">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center">
+                <img src={item.icon} alt="" className="max-h-9 max-w-9 object-contain" />
+              </div>
+              <h3 className="text-xl font-semibold leading-tight text-[#0d1b57]">{item.title}</h3>
             </article>
           ))}
         </div>
-        <p className="text-center text-2xl text-[#5c6d94] dark:text-zinc-300">Educação, carreira, idiomas, negócios, tecnologia e muito mais.</p>
+        <p className="text-center text-2xl text-[#5c6d94]">Educação, carreira, idiomas, negócios, tecnologia e muito mais.</p>
       </section>
 
       <section className="rounded-3xl border border-[#15378f] bg-[#031952] p-8 text-white">
@@ -126,11 +128,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="rounded-3xl bg-[#f3f6ff] p-8 dark:bg-zinc-900">
+      <section className="rounded-3xl bg-[#f3f6ff] p-8">
         <div className="grid items-center gap-6 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-4">
-            <h2 className="text-5xl font-bold text-[#0d1b57] dark:text-white">Pronto para transformar sua presença em impacto?</h2>
-            <p className="text-2xl text-[#5c6d94] dark:text-zinc-300">Crie seu perfil gratuitamente e comece a receber seus primeiros agendamentos.</p>
+            <h2 className="text-5xl font-bold text-[#0d1b57]">Pronto para transformar sua presença em impacto?</h2>
+            <p className="text-2xl text-[#5c6d94]">Crie seu perfil gratuitamente e comece a receber seus primeiros agendamentos.</p>
             <div className="flex gap-3">
               <Link href="/register" className="rounded-xl bg-[#0b4bff] px-6 py-3 text-lg font-semibold text-white">Criar meu perfil</Link>
               <Link href="/oathlon" className="rounded-xl border border-[#d4ddf8] bg-white px-6 py-3 text-lg font-semibold text-[#0d1b57] transition hover:text-brand-orange">Ver exemplo de perfil</Link>
