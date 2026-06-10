@@ -87,7 +87,7 @@ export default function HomePage() {
           {howItWorks.map((item, index) => (
             <article key={item.step} className="space-y-4 text-center">
               <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-[#d9e2fa] bg-white shadow-sm">
-                <img src={item.icon} alt="" className="h-7 w-7" />
+                <img src={item.icon} alt="" className="max-h-7 max-w-7 object-contain" />
                 <span className="absolute -bottom-2 -left-2 rounded bg-[#0b4bff] px-1.5 py-0.5 text-xs font-bold text-white">{index + 1}</span>
               </div>
               <h3 className="text-2xl font-semibold text-[#0d1b57]">{item.title}</h3>
@@ -101,9 +101,11 @@ export default function HomePage() {
         <h2 className="text-center text-5xl font-bold text-[#0d1b57]">Para quem é o Peekr</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {audienceCards.map((item) => (
-            <article key={item.title} className="rounded-2xl border border-[#e3e9fb] bg-white p-6 text-center">
-              <img src={item.icon} alt="" className="mx-auto mb-4 h-8 w-8" />
-              <h3 className="text-2xl font-semibold text-[#0d1b57]">{item.title}</h3>
+            <article key={item.title} className="flex min-h-40 flex-col items-center justify-center gap-4 rounded-2xl border border-[#e3e9fb] bg-white p-4 text-center">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center">
+                <img src={item.icon} alt="" className="max-h-9 max-w-9 object-contain" />
+              </div>
+              <h3 className="text-xl font-semibold leading-tight text-[#0d1b57]">{item.title}</h3>
             </article>
           ))}
         </div>
