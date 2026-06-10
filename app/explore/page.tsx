@@ -1,0 +1,3 @@
+import { Button } from "@/components/ui/Button";
+import { Card, CardContent } from "@/components/ui/Card";
+export default function ExplorePage() { return <div className="space-y-6"><div><h1 className="text-3xl font-extrabold text-[#0d1b57]">Explore especialistas</h1><p className="mt-2 text-[#68799f]">A busca completa será implementada em uma etapa futura.</p></div><Card className="max-w-md"><CardContent><div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-blue text-2xl font-bold text-white">A</div><h2 className="mt-4 text-xl font-extrabold text-[#0d1b57]">Athlon</h2><p className="mt-1 text-[#68799f]">Especialista em Game Design</p><Button href="/athlon" className="mt-5 w-full">Ver perfil</Button></CardContent></Card></div>; }
