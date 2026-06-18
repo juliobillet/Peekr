@@ -3,7 +3,7 @@ import Link from "next/link";
 const howItWorks = [
   {
     step: "1",
-    title: "Crie seu perfil",
+    title: "Crie seu perfil gratuitamente",
     description: "Mostre quem você é, suas especialidades e como pode ajudar.",
     icon: "/icons/profile-icon.png",
   },
@@ -15,13 +15,13 @@ const howItWorks = [
   },
   {
     step: "3",
-    title: "Receba reservas e pagas",
-    description: "Suas clientes selecionam o horário e pagam com segurança na plataforma.",
+    title: "Receba reservas pagas",
+    description: "Seus clientes selecionam o horário e pagam com segurança na plataforma.",
     icon: "/icons/credit-card-icon.png",
   },
   {
     step: "4",
-    title: "Encontre sua cliente em uma sala efêmera",
+    title: "Encontros em uma sala efêmera",
     description: "A sala abre antes do horário, acontece ao vivo e encerra ao final da sessão.",
     icon: "/icons/camera-icon.png",
   },
@@ -98,7 +98,7 @@ export default function HomePage() {
       </section>
 
       <section className="space-y-8">
-        <h2 className="text-center text-3xl font-bold sm:text-5xl text-[#0d1b57]">Para quem é o Peekr</h2>
+        <h2 className="text-center text-3xl font-bold sm:text-5xl text-[#0d1b57]">Para que serve o Peekr</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {audienceCards.map((item) => (
             <article key={item.title} className="flex min-h-40 flex-col items-center justify-center gap-4 rounded-2xl border border-[#e3e9fb] bg-white p-4 text-center">
