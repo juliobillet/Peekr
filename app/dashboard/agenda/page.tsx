@@ -1,3 +1,5 @@
-import { EmptyState } from "@/components/ui/EmptyState";
-const days = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
-export default function AgendaPage() { return <div className="space-y-6"><div><h1 className="text-3xl font-extrabold text-[#0d1b57]">Agenda</h1><p className="mt-2 text-[#68799f]">Organize visualmente sua disponibilidade semanal.</p></div><div className="overflow-x-auto rounded-2xl border border-[#dfe7f8] bg-white p-4"><div className="grid min-w-[680px] grid-cols-7 gap-2">{days.map((day, index) => <div key={day} className="space-y-2"><div className="rounded-xl bg-blue-50 p-3 text-center font-bold text-[#274477]">{day}</div>{[9, 11, 14, 16].map(hour => <div key={hour} className={`rounded-lg border p-2 text-center text-sm ${index === 1 && hour === 14 ? "border-brand-blue bg-blue-50 font-bold text-brand-blue" : "border-[#e7ecf8] text-[#8794b1]"}`}>{hour}:00</div>)}</div>)}</div></div><EmptyState icon="📅" title="Agenda em preparação" description="Em breve você poderá criar horários disponíveis para receber reservas."/></div>; }
+import { redirect } from "next/navigation";
+
+export default function AgendaPage() {
+  redirect("/dashboard?tab=calendar");
+}
