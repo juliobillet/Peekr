@@ -1,5 +1,13 @@
-import { Button } from "@/components/ui/Button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
-import { StatCard } from "@/components/ui/StatCard";
-const actions = [{ label: "Completar perfil", href: "/settings" }, { label: "Criar serviço", href: "/settings" }, { label: "Configurar agenda", href: "/dashboard/agenda" }, { label: "Ver página pública", href: "/athlon" }];
-export default function DashboardPage() { return <div className="space-y-7"><div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="font-bold text-brand-orange">Visão geral</p><h1 className="text-3xl font-extrabold text-[#0d1b57] sm:text-4xl">Olá, Athlon 👋</h1><p className="mt-2 text-[#68799f]">Acompanhe seu espaço e prepare seus próximos Peeks.</p></div><Button href="/athlon">Ver perfil Athlon</Button></div><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><StatCard title="Peeks futuros" value="3" description="Próximos 7 dias"/><StatCard title="Peeks realizados" value="28" description="Últimos 30 dias"/><StatCard title="Peekers atendidos" value="262"/><StatCard title="Receita estimada" value="R$ 2.840" description="Dados simulados"/></div><Card><CardHeader><CardTitle>Próximas ações</CardTitle></CardHeader><CardContent className="grid gap-3 sm:grid-cols-2">{actions.map(action => <Button key={action.label} href={action.href} variant="secondary" className="justify-between">{action.label}<span>→</span></Button>)}</CardContent></Card></div>; }
+import { DashboardProfile } from "@/components/dashboard/DashboardProfile";
+
+type DashboardPageProps = {
+  searchParams: Promise<{ tab?: string }>;
+};
+
+export default async function DashboardPage({
+  searchParams,
+}: DashboardPageProps) {
+  const { tab } = await searchParams;
+
+  return <DashboardProfile initialTab={tab} />;
+}
