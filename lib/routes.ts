@@ -8,6 +8,5 @@ export const routes = {
   messages: "/messages",
   notifications: "/notifications",
   settings: "/settings",
-  room: (roomId: string) => `/room/${roomId}`,
   profile: (username: string) => `/${username}`,
 };

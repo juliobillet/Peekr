@@ -1,6 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { Card, CardContent } from "@/components/ui/Card";
 import { mockNotifications } from "@/lib/mock-data";
-
-export default function NotificationsPage() {
-  return <div className="space-y-6"><h1 className="text-3xl font-bold">Notificações</h1><Card><CardHeader><CardTitle>Últimas atualizações</CardTitle></CardHeader><CardContent className="space-y-2">{mockNotifications.map((notification) => <div key={notification} className="rounded-xl border border-zinc-800 p-3 text-zinc-300">{notification}</div>)}</CardContent></Card></div>;
-}
+const icons = ["✓", "R$", "⏱", "✉"];
+export default function NotificationsPage() { return <div className="space-y-6"><div><h1 className="text-3xl font-extrabold text-[#0d1b57]">Notificações</h1><p className="mt-2 text-[#68799f]">Atualizações mockadas da sua conta.</p></div><Card><CardContent className="divide-y divide-[#e8edf8]">{mockNotifications.map((item, index) => <div key={item} className="flex items-center gap-4 py-4"><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-50 font-extrabold text-brand-blue">{icons[index]}</span><div><h2 className="font-bold text-[#274477]">{item}</h2><p className="mt-1 text-sm text-[#8794b1]">Esta é uma notificação de demonstração.</p></div></div>)}</CardContent></Card></div>; }

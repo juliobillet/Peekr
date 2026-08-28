@@ -1,7 +1,3 @@
 import { Card, CardContent } from "@/components/ui/Card";
-
-const sections = ["Perfil", "Agenda", "Notificações", "Conta", "Sair"];
-
-export default function SettingsPage() {
-  return <div className="space-y-6"><h1 className="text-3xl font-bold">Configurações</h1><Card><CardContent className="space-y-2">{sections.map((section) => <button key={section} className="w-full rounded-xl border border-zinc-800 p-3 text-left hover:bg-zinc-800">{section}</button>)}</CardContent></Card></div>;
-}
+const sections = [{ icon: "👤", title: "Perfil", desc: "Nome, bio e especialidades" }, { icon: "📅", title: "Agenda", desc: "Disponibilidade e duração" }, { icon: "🔔", title: "Notificações", desc: "Preferências de comunicação" }, { icon: "⚙", title: "Conta", desc: "E-mail e segurança" }, { icon: "↪", title: "Sair", desc: "Encerrar sessão futura" }];
+export default function SettingsPage() { return <div className="space-y-6"><h1 className="text-3xl font-extrabold text-[#0d1b57]">Configurações</h1><Card><CardContent className="grid gap-3 sm:grid-cols-2">{sections.map(item => <button key={item.title} className="flex items-center gap-4 rounded-xl border border-[#e5ebf8] p-4 text-left hover:bg-blue-50"><span className="text-xl">{item.icon}</span><span><strong className="block text-[#274477]">{item.title}</strong><small className="text-[#8794b1]">{item.desc}</small></span></button>)}</CardContent></Card></div>; }

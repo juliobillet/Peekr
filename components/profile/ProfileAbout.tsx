@@ -1,0 +1,6 @@
+import { Badge } from "@/components/ui/Badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { mockProfile } from "@/lib/mock-data";
+import { IntroVideoCard } from "./IntroVideoCard";
+export function ProfileAbout() { return <div className="grid gap-5 lg:grid-cols-[1.15fr_.85fr]"><Card><CardHeader><CardTitle>Sobre Athlon</CardTitle></CardHeader><CardContent className="space-y-6"><p className="leading-7 text-[#40547c]">{mockProfile.bio}</p><div><h4 className="mb-3 font-bold text-[#0d1b57]">Especialidades</h4><div className="flex flex-wrap gap-2">{mockProfile.specialties.map(item => <Badge key={item}>{item}</Badge>)}</div></div><dl className="grid gap-3 border-t border-[#e8edf8] pt-5 sm:grid-cols-3"><Info label="Atendimento" value={mockProfile.location}/><Info label="Idiomas" value={mockProfile.languages.join(", ")}/><Info label="Instagram" value={mockProfile.instagram}/></dl></CardContent></Card><IntroVideoCard/></div>; }
+function Info({ label, value }: { label: string; value: string }) { return <div><dt className="text-xs font-bold uppercase tracking-wide text-[#8794b1]">{label}</dt><dd className="mt-1 font-semibold text-[#274477]">{value}</dd></div>; }
