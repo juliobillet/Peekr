@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function AgendaPage() {
-  redirect("/dashboard?tab=calendar");
+  redirect("/athlon?tab=calendar");
 }

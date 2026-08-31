@@ -1,13 +1,5 @@
-import { DashboardProfile } from "@/components/dashboard/DashboardProfile";
+import { redirect } from "next/navigation";
 
-type DashboardPageProps = {
-  searchParams: Promise<{ tab?: string }>;
-};
-
-export default async function DashboardPage({
-  searchParams,
-}: DashboardPageProps) {
-  const { tab } = await searchParams;
-
-  return <DashboardProfile initialTab={tab} />;
+export default function DashboardPage() {
+  redirect("/athlon");
 }

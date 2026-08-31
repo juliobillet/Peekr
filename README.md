@@ -11,7 +11,7 @@ Peekr é uma plataforma para especialistas apresentarem seu trabalho e receberem
 - Agendamento simulado.
 - Confirmação simulada por e-mail.
 - Registro simulado no calendário do cliente e do especialista.
-- Dashboard com visão geral, calendário, depoimentos, blog e notificações.
+- Perfil central com visão geral, calendário, Peeks, depoimentos, blog e notificações.
 
 O fluxo termina quando o agendamento é confirmado. Sala de vídeo, entrada em chamada e demais etapas posteriores não fazem parte deste protótipo.
 
@@ -32,7 +32,7 @@ npm install
 npm run dev
 ```
 
-Abra `http://localhost:3000`. O perfil de exemplo está em `/athlon` e o painel reformulado está em `/dashboard`.
+Abra `http://localhost:3000`. O perfil de exemplo está em `/athlon`, outros usernames usam o mesmo template em `/[username]` e a descoberta de perfis está em `/explore`.
 
 ## Verificações
 
