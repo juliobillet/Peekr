@@ -1,12 +1,9 @@
-# Mockups da Home
+# Mockups da landing
 
-Arquivos esperados para a Home (usados em `app/page.tsx`):
+Assets visuais locais usados pela landing page:
 
-- `home-reference-full.png`
-- `overview-card.png`
 - `profile-schedule.png`
 - `payment-card.png`
-- `room-card.png`
-- `lock-visual.png`
+- `overview-card.png`
 
-Estes nomes foram configurados para refletir os mockups enviados no briefing.
+O fluxo visual termina na confirmação do agendamento e no registro em calendário.
