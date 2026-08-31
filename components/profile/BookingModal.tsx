@@ -13,12 +13,12 @@ import {
 export function BookingModal({
   slot,
   initialService,
-  displayName,
+  displayName = "Athlon",
   onClose,
 }: {
   slot: AvailabilitySlot;
   initialService: Service | null;
-  displayName: string;
+  displayName?: string;
   onClose: () => void;
 }) {
   const [service, setService] = useState(initialService ?? services[0]);
