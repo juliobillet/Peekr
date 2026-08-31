@@ -1,103 +1,47 @@
 # Peekr
 
-Peekr é uma plataforma de sessões privadas ao vivo para especialistas venderem aulas, mentorias, revisões e consultorias sem montar curso ou infraestrutura própria.
+Peekr é uma plataforma para especialistas apresentarem seu trabalho e receberem agendamentos de aulas, mentorias, revisões e consultorias.
 
 > “Venda sua presença. Não um curso.”
 
-## Escopo do MVP
+## Escopo atual do protótipo
 
-- Conta e perfil público.
-- Serviços oferecidos.
-- Agenda.
-- Reserva.
-- Pagamento.
-- Sala efêmera.
-- Notificações.
-- E-mails.
-- Denúncias e moderação básica.
+- Perfil público de especialista.
+- Serviços e horários disponíveis.
+- Agendamento simulado.
+- Confirmação simulada por e-mail.
+- Registro simulado no calendário do cliente e do especialista.
+- Perfil central com visão geral, calendário, Peeks, depoimentos, blog e notificações.
 
-## O que **NÃO** faz parte do MVP inicial
+O fluxo termina quando o agendamento é confirmado. Sala de vídeo, entrada em chamada e demais etapas posteriores não fazem parte deste protótipo.
 
-- Cursos gravados.
-- Feed social completo.
-- Comunidades.
-- Lives públicas.
-- App mobile.
-- Saúde regulada.
-- Gravação de sessões.
-- Bloqueio absoluto de captura/gravação externa.
-
-## Stack planejada
+## Stack
 
 - Next.js App Router
+- React
 - TypeScript
 - Tailwind CSS
-- Supabase
-- LiveKit
-- Stripe
-- Resend
-- Prisma opcional
+- Dados e estado locais
+
+Não é necessário configurar banco de dados, autenticação, pagamento, e-mail ou provedor de calendário para executar esta versão.
 
 ## Como rodar localmente
 
-1. `npm install`
-2. `cp .env.example .env.local`
-3. Preencha as variáveis mínimas.
-4. `npm run setup:check`
-5. `npm run dev`
+```bash
+npm install
+npm run dev
+```
 
-## Variáveis de ambiente
+Abra `http://localhost:3000`. O perfil de exemplo está em `/athlon`, outros usernames usam o mesmo template em `/[username]` e a descoberta de perfis está em `/explore`.
 
-- `NEXT_PUBLIC_*` são públicas e podem ir para o client.
-- Variáveis **sem** `NEXT_PUBLIC_` são privadas e nunca devem ser usadas em Client Components.
-- Feature flags permitem desenvolver sem configurar todas as integrações de uma vez.
+## Verificações
 
-## Fases de ativação das integrações
+```bash
+npm run typecheck
+npm run lint
+npm run build
+```
 
-### Fase 1
+## Limitações
 
-- UI, perfis e Supabase.
-- Payments `false`.
-- LiveKit `false`.
-- Emails `false`.
-
-### Fase 2
-
-- Ativar pagamentos.
-- `NEXT_PUBLIC_ENABLE_PAYMENTS=true`.
-
-### Fase 3
-
-- Ativar e-mails.
-- `NEXT_PUBLIC_ENABLE_EMAILS=true`.
-
-### Fase 4
-
-- Ativar LiveKit.
-- `NEXT_PUBLIC_ENABLE_LIVEKIT=true`.
-
-### Fase 5
-
-- Ativar arquivos temporários.
-- `NEXT_PUBLIC_ENABLE_TEMP_FILES=true`.
-
-## Limitações importantes
-
-- A Peekr não grava sessões por padrão.
-- A Peekr não oferece gravação nativa.
-- Não existe garantia absoluta contra gravação externa feita por terceiros.
-- Denúncias e moderação serão implementadas em fases posteriores.
-- Saúde regulada deve ser tratada em uma vertical futura, com regras específicas.
-
-## Checklist futuro de deploy
-
-- Configurar domínio principal.
-- Configurar domínio de salas.
-- Configurar Supabase.
-- Configurar Storage buckets.
-- Configurar Stripe webhook.
-- Configurar Resend domain.
-- Configurar LiveKit.
-- Configurar cron para fechamento de salas expiradas.
-- Revisar RLS policies.
-- Revisar termos de uso e política de privacidade.
+Todos os dados, formulários, horários, depoimentos, posts, reações, notificações e confirmações são mockados. Nenhuma mensagem ou evento é enviado para serviços externos nesta etapa.
