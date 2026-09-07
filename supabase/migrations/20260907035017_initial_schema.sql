@@ -158,7 +158,8 @@ create table public.services (
   updated_at timestamptz not null default now(),
 
   constraint services_duration_check check (duration_minutes between 10 and 480),
-  constraint services_price_check check (price_cents is null or price_cents >= 0)
+  constraint services_price_check check (price_cents is null or price_cents >= 0),
+  constraint services_id_specialist_unique unique (id, specialist_id)
 );
 
 create index services_specialist_id_idx
@@ -189,7 +190,9 @@ create table public.calendar_connections (
   updated_at timestamptz not null default now(),
 
   constraint calendar_connections_account_unique
-    unique (user_id, provider, external_account_id)
+    unique (user_id, provider, external_account_id),
+  constraint calendar_connections_id_provider_unique
+    unique (id, provider)
 );
 
 create index calendar_connections_user_id_idx
@@ -312,7 +315,13 @@ create table public.bookings (
 
   constraint bookings_time_check check (starts_at < ends_at),
   constraint bookings_price_check check (price_cents_snapshot is null or price_cents_snapshot >= 0),
-  constraint bookings_different_people_check check (specialist_id <> customer_id)
+  constraint bookings_different_people_check check (specialist_id <> customer_id),
+  constraint bookings_service_specialist_fk
+    foreign key (service_id, specialist_id)
+    references public.services(id, specialist_id)
+    on delete restrict,
+  constraint bookings_id_specialist_customer_unique
+    unique (id, specialist_id, customer_id)
 );
 
 create index bookings_specialist_start_idx
@@ -360,7 +369,11 @@ create table public.external_calendar_events (
   constraint external_calendar_event_unique
     unique (provider, external_event_id),
   constraint external_calendar_booking_connection_unique
-    unique (booking_id, calendar_connection_id)
+    unique (booking_id, calendar_connection_id),
+  constraint external_calendar_provider_matches_connection_fk
+    foreign key (calendar_connection_id, provider)
+    references public.calendar_connections(id, provider)
+    on delete restrict
 );
 
 create index external_calendar_events_booking_id_idx
@@ -388,7 +401,11 @@ create table public.reviews (
   updated_at timestamptz not null default now(),
 
   constraint reviews_rating_check check (rating between 1 and 5),
-  constraint reviews_different_people_check check (reviewer_id <> specialist_id)
+  constraint reviews_different_people_check check (reviewer_id <> specialist_id),
+  constraint reviews_match_booking_fk
+    foreign key (booking_id, specialist_id, reviewer_id)
+    references public.bookings(id, specialist_id, customer_id)
+    on delete cascade
 );
 
 create index reviews_specialist_created_idx
