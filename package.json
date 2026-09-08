@@ -17,6 +17,8 @@
     "rooms:close-expired": "tsx scripts/close-expired-rooms.ts"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.6",
+    "@supabase/supabase-js": "^2.116.0",
     "next": "^16.2.6",
     "react": "19.2.0",
     "react-dom": "19.2.0"
@@ -34,5 +36,12 @@
     "tailwindcss": "^3.4.16",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true,
+    "unrs-resolver@1.12.2": true,
+    "prisma@6.12.0": true,
+    "@prisma/engines@6.12.0": true,
+    "esbuild@0.28.2": true
   }
 }
